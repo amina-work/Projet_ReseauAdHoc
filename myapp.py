@@ -20,8 +20,19 @@ def createNodes(num):
         n_name += 1
         #so that each node will have a diff transimittion range from 100 to 3000
         node_sizes.append(random.randint(1, 30)*100)
+    
+    #add node position as node attributes
     pos=nx.get_node_attributes(G,'pos')
     print(pos) #return each node x, y position
+    
+    #connecting all nodes
+    edges = []
+    n1, n2 = 1, 2
+    for i in range(num):
+        edges.append((n1, n2))
+        n2 += 1
+        
+    #show the graphs, in diff figures
     plt.figure(1)
     nx.draw(G, pos, node_size=node_sizes, with_labels=True)
     plt.figure(2)
