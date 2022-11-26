@@ -21,20 +21,17 @@ def createNodes(num):
         G.add_node("N" + str(n_name), pos=(random.randint(0, 100), random.randint(0, 100)))
         G2.add_node("N" + str(n_name), pos=(random.randint(0, 100), random.randint(0, 100)))
         n_name += 1
-        
-        #so that each node will have a diff transimittion range from 100 to 3000
-        #node_sizes.append(random.randint(1, 30)*100)
     
     #add node position as node attributes
     pos=nx.get_node_attributes(G,'pos')
     print(pos) #return each node x, y position
     
-    #connecting all nodes
-    #edges = []
-    #n1, n2, n3 = 1, 1, 2
-    #for i in range(num):
-        
-        
+    #appending [x, y] of each node into a list
+    list_des_xy = []
+    for nd, att in pos.items():
+        list_des_xy.append([att[0], att[1]])
+    print(list_des_xy)
+            
     #show the graphs, in diff figures
     plt.figure(1)
     nx.draw(G, pos, with_labels=True)
