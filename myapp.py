@@ -8,7 +8,7 @@ G = nx.Graph() #Vecteur
 G2 = nx.Graph() #OLSR
 
 #Generate a random number 
-rayon = random.randint(30, 70)
+rayon = random.randint(50, 70)
 
 #Initializing the number of nodes, 
 def createNodes(num):
@@ -16,7 +16,7 @@ def createNodes(num):
     #node_sizes = []
     for i in range(num):
         #setting up the graph zone 100x100. 
-        G.add_node("N" + str(n_name), pos=(random.randint(0, 100), random.randint(0, 100)))
+        G.add_node("N" + str(n_name), pos=(random.randint(0, 70), random.randint(0, 70)))
         #G2.add_node("N" + str(n_name), pos=(random.randint(0, 100), random.randint(0, 100)))
         n_name += 1
     
@@ -24,28 +24,32 @@ def createNodes(num):
     pos=nx.get_node_attributes(G,'pos')
     print(pos) #return each node x, y position
     
-    #appending [x, y] of each node into a list
-    list_des_xy = []
-    list_des_noueds = []
+    #finding each 
+    list_of_eds = [] #to avoid remaking arcs between same nodes
+    voisin = []
+    voisins = []
+    voisins_uni = {}
     for nd, att in pos.items():
-        list_des_xy.append([att[0], att[1]])
-        list_des_noueds.append(nd)
-    print(list_des_noueds)
-    print(list_des_xy)
-    for nd in list_des_xy: #resigining each [x, y] to their node
-        for nd2 in list_des_xy:
-            if nd != nd2: #so it doesn"t count the distance with itself
-                print(nd, nd2)
-                distance = math.dist(nd, nd2)
-                print(math.dist(nd, nd2)) #calculating the Euclidean distance
-                if distance < rayon:
-                    print(nd, "et", nd2, "sont des voisins.")
-        
+        for nd2, att2 in pos.items():
+            if att != att2:
+                #calculate the euclidien distance
+                distance = math.dist(att, att2)
+                if distance not in list_of_eds:
+                    if distance < rayon:
+                        print(nd, "and", nd2, "are neighbors")
+                        G.add_edge(nd, nd2)
+                        voisin.append([nd2, distance])
+                list_of_eds.append(distance)
+        #removing repeated neighbors from list of neighbors
+        for i in voisin:
+            if i not in voisins:
+                voisins.append(i)
+        voisins_uni[nd] = voisins
     print(rayon)
+    print(voisins_uni)
             
     #show the graphs, in diff figures
-    #plt.figure(1)
-    #nx.draw(G, pos, with_labels=True)
+    nx.draw(G, pos, with_labels=True)
     #plt.figure(2)
     #nx.draw(G2, pos, with_labels=True)
     #plt.show()
@@ -57,9 +61,6 @@ def main():
     while nm <= 0:
         nm = int(input("Incorrect. Entrer un nombre positif de nœuds:"))
     print(createNodes(nm))
-    
-    
-main()
-#nx.draw(G)
-#plt.show()
 
+main()
+plt.show()
