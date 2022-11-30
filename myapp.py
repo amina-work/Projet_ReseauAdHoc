@@ -12,6 +12,7 @@ rayon = random.randint(50, 70)
 
 #Initializing the number of nodes, 
 def createNodes(num):
+    print("Simulation Start")
     n_name = 1 #giving each node a diff name as Graph count similar nodes as one
     #node_sizes = []
     for i in range(num):
@@ -31,28 +32,26 @@ def createNodes(num):
     voisins_uni = {}
     for nd, att in pos.items():
         for nd2, att2 in pos.items():
-            if att != att2:
-                #calculate the euclidien distance
-                distance = math.dist(att, att2)
-                if distance not in list_of_eds:
-                    if distance < rayon:
-                        print(nd, "and", nd2, "are neighbors")
-                        G.add_edge(nd, nd2)
-                        voisin.append([nd2, distance])
-                list_of_eds.append(distance)
-        #removing repeated neighbors from list of neighbors
-        for i in voisin:
-            if i not in voisins:
-                voisins.append(i)
-        voisins_uni[nd] = voisins
-    print(rayon)
-    print(voisins_uni)
+            if nd != nd2:
+                if att != att2:
+                    #calculate the euclidien distance
+                    distance = math.dist(att, att2)
+                    if distance not in list_of_eds:
+                        if distance < rayon:
+                            print(nd, "and", nd2, "are neighbors")
+                            G.add_edge(nd, nd2)
+                            voisin.append([nd, nd2, distance])
+                    list_of_eds.append([nd, nd2, distance])
+    print(rayon) #le rayon pour tous les noueds (UDG)
+    print(voisin) #le noued, et le list de ses voisins
+    print(list_of_eds) #le list de distance entre tous les noueds
             
     #show the graphs, in diff figures
     nx.draw(G, pos, with_labels=True)
     #plt.figure(2)
     #nx.draw(G2, pos, with_labels=True)
     #plt.show()
+    print("Simulation End")
 
         
     
