@@ -40,12 +40,12 @@ def createNodes(num):
                             print(nd, "and", nd2, "are neighbors")
                             G.add_edge(nd, nd2)
                             voisin.append([nd, nd2, distance])
-                            #voisins_uni[nd] = [].append(nd2)
+                            voisins_uni[nd] = [nd].append(nd2)
                     list_of_eds.append([nd, nd2, distance])
     print(rayon) #le rayon pour tous les noueds (UDG)
     print(voisin) #le noued, et le list de ses voisins
     print(list_of_eds) #le list de distance entre tous les noueds
-    print(voisins_uni)        
+     
     #show the graphs, in diff figures
     nx.draw(G, pos, with_labels=True)
     #plt.figure(2)
