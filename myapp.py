@@ -12,7 +12,7 @@ rayon = random.randint(50, 70)
 
 #Initializing the number of nodes, 
 def createNodes(num):
-    print("Simulation Start")
+    print("\n\n \t\t\tSIMULATION START \n\n")
     n_name = 1 #giving each node a diff name as Graph count similar nodes as one
     #node_sizes = []
     for i in range(num):
@@ -28,7 +28,6 @@ def createNodes(num):
     #finding each 
     list_of_eds = [] #to avoid remaking arcs between same nodes
     voisin = []
-    voisins = []
     voisins_uni = {}
     for nd, att in pos.items():
         for nd2, att2 in pos.items():
@@ -41,17 +40,18 @@ def createNodes(num):
                             print(nd, "and", nd2, "are neighbors")
                             G.add_edge(nd, nd2)
                             voisin.append([nd, nd2, distance])
+                            #voisins_uni[nd] = [].append(nd2)
                     list_of_eds.append([nd, nd2, distance])
     print(rayon) #le rayon pour tous les noueds (UDG)
     print(voisin) #le noued, et le list de ses voisins
     print(list_of_eds) #le list de distance entre tous les noueds
-            
+    print(voisins_uni)        
     #show the graphs, in diff figures
     nx.draw(G, pos, with_labels=True)
     #plt.figure(2)
     #nx.draw(G2, pos, with_labels=True)
     #plt.show()
-    print("Simulation End")
+    print("\n\n \t\t\tSIMULATION END \n\n")
 
         
     
