@@ -6,7 +6,7 @@ import math
 
 lettres = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 n = int(input("Entrer le nombre des noeuds :"))
-distance = float(input("Enter le rayon de transmission : "))
+distance = float(input("Enter le rayon de transmission (entre 50 et 70) : "))
 #n = 8
 #distance = 37 pixcel
 G = nx.Graph()
