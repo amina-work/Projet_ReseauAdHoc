@@ -1,0 +1,101 @@
+****************************** SIMULATION START ******************************
+
+********************* L'algorithme de Clustering *********************
+
+********************* Les attributs des noueds de reseau *********************
+Le noued N0 --------> x = 59.00 et y = 31.00
+Le noued N1 --------> x = 13.00 et y = 36.00
+Le noued N2 --------> x = 85.00 et y = 27.00
+Le noued N3 --------> x = 24.00 et y = 67.00
+Le noued N4 --------> x = 31.00 et y = 48.00
+
+
+********************* Calculation des distances entre les noueds de reseau *********************
+La distance entre N0 et N1 = 46.27
+La distance entre N0 et N2 = 26.31
+La distance entre N0 et N3 = 50.21
+La distance entre N0 et N4 = 32.76
+La distance entre N1 et N2 = 72.56
+La distance entre N1 et N3 = 32.89
+La distance entre N1 et N4 = 21.63
+La distance entre N2 et N3 = 72.95
+La distance entre N2 et N4 = 57.94
+La distance entre N3 et N4 = 20.25
+
+
+
+********************* Affichage la liste des voisin *********************
+
+Les voisin du N0 sont : N1	N2	N3	N4	
+Les voisin du N1 sont : N0	N3	N4	
+Les voisin du N2 sont : N0	N4	
+Les voisin du N3 sont : N0	N1	N4	
+Les voisin du N4 sont : N0	N1	N2	N3	
+
+
+
+
+********************* L'Algorithme de Clustering *********************
+
+
+N0 a envoyer un message: N0 est ClusterHead, avec Min=8 a: N1 N2 N3 N4
+N1 recu le message		N1 envoyer a N0: 5		N0 recu le message
+N2 recu le message		N2 envoyer a N0: 2		N0 recu le message
+N3 recu le message		N3 envoyer a N0: 1		N0 recu le message
+N4 recu le message		N4 envoyer a N0: 8		N0 recu le message
+
+
+N0 a envoyer un message: N3 est ClusterHead avec Min= 1
+de Cluster: N0 N1 N4
+N1 recu le message
+N4 recu le message
+
+N1 a envoyer un message: N1 est ClusterHead, avec Min=5 a: N0 N3 N4
+N0 recu le message		N0 envoyer a N1: 8		N1 recu le message
+N3 recu le message		N3 envoyer a N1: 1		N1 recu le message
+N4 recu le message		N4 envoyer a N1: 8		N1 recu le message
+
+
+N1 a envoyer un message: N3 est ClusterHead avec Min= 1
+de Cluster: 
+N0 recu le message
+N4 recu le message
+
+N2 a envoyer un message: N2 est ClusterHead, avec Min=2 a: N0 N4
+N0 recu le message		N0 envoyer a N2: 8		N2 recu le message
+N4 recu le message		N4 envoyer a N2: 8		N2 recu le message
+
+
+N2 a envoyer un message: N2 est ClusterHead avec Min= 2
+de Cluster:2
+
+2 recu le message
+N0 recu le message
+N4 recu le message
+
+N3 a envoyer un message: N3 est ClusterHead, avec Min=1 a: N0 N1 N4
+N0 recu le message		N0 envoyer a N3: 8		N3 recu le message
+N1 recu le message		N1 envoyer a N3: 5		N3 recu le message
+N4 recu le message		N4 envoyer a N3: 8		N3 recu le message
+
+
+N3 a envoyer un message: N3 est ClusterHead avec Min= 1
+de Cluster:1
+
+1 recu le message
+N0 recu le message
+N1 recu le message
+N4 recu le message
+
+N4 a envoyer un message: N4 est ClusterHead, avec Min=8 a: N0 N1 N2 N3
+N0 recu le message		N0 envoyer a N4: 8		N4 recu le message
+N1 recu le message		N1 envoyer a N4: 5		N4 recu le message
+N2 recu le message		N2 envoyer a N4: 2		N4 recu le message
+N3 recu le message		N3 envoyer a N4: 1		N4 recu le message
+
+
+N4 a envoyer un message: N3 est ClusterHead avec Min= 1
+de Cluster: 
+N0 recu le message
+N1 recu le message
+****************************** SIMULATION END ******************************
